@@ -16,7 +16,7 @@ public class StudentRegistration {
     this.name = name;
     this.gender = gender;
     this.mobile = mobile;
-    this.email = email;
+    this.setEmail(email);
     this.dateofbirth = dateofbirth;
     this.countryofresidence = countryofresidence;
     this.interest = interest;
@@ -34,10 +34,6 @@ public class StudentRegistration {
     return mobile;
   }
   
-  public void setemail(String email) {
-    this.email = email;
-  }
-  
   public String getdateofbirth() {
     return dateofbirth;
   }
@@ -48,6 +44,14 @@ public class StudentRegistration {
   public String getinterest() {
 	  return interest;
   }
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
 
 }
 
