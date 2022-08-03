@@ -1,12 +1,14 @@
+//ethan
+
 public class AddTimetable {
 
-	public String timeableId;
+	public int timeableId;
 	public double price;
 	public String startDateTime;
 	public String endDateTime;
 	public String mode;
 
-	public AddTimetable(String timeableId, double price, String startDateTime, String endDateTime, String mode) {
+	public AddTimetable(int timeableId, double price, String startDateTime, String endDateTime, String mode) {
 
 		this.timeableId = timeableId;
 		this.price = price;
@@ -15,11 +17,11 @@ public class AddTimetable {
 		this.mode = mode;
 	}
 
-	public String getTimeableId() {
+	public int getTimeableId() {
 		return timeableId;
 	}
 
-	public void setTimeableId(String timeableId) {
+	public void setTimeableId(int timeableId) {
 		this.timeableId = timeableId;
 	}
 
