@@ -1,3 +1,4 @@
+//maegan
 public class Registration {
 
 	private String registrationNum;

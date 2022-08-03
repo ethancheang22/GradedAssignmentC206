@@ -1,5 +1,4 @@
 //ethan
-
 public class AddTimetable {
 
 	public int timeableId;

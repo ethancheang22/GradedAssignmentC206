@@ -1,5 +1,4 @@
 //alvin
-
 public class AddTuition {
 
 	private int Tuitioncode;
