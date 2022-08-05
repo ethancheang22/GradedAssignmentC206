@@ -9,54 +9,52 @@ public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ArrayList<AddTuition> A1List = new ArrayList<AddTuition>();
-		A1List.add(new AddTuition(1, "a", "a", "a", "a", "a", "a", "a"));
+		ArrayList<AddTuition> addTuitionList = new ArrayList<AddTuition>();
+		
+		addTuitionList.add(new AddTuition(1, "a", "a", "a", "a", "a", "a", "a"));
+		
 		int option = 0;
-	while(option != 4) {
-		AddTuition();
-		option = Helper.readInt("Enter option > ");
-
-		if (option == 1) {
-			for (int i = 0; i < A1List.size(); i++) {
-				String output = String.format("%-15s %-10s %-15s %-15s %-15s %-15s %-15s %-15s \n",
-						"Tuition ","Title" ,"Groupname" ,"Description" ,"Duration" ,"Teacher" ,"Requisite" ,"Year Started"
-						);
-				output += String.format("%-15d %-10s %-15s %-15s %-15s %-15s %-15s %-15s \n", A1List.get(i).getTuitioncode(),A1List.get(i).getTuitiontitle(),A1List.get(i).getGroupname(),A1List.get(i).getTutitionDescription(),A1List.get(i).getDuration(),A1List.get(i).getTeacher(),A1List.get(i).getrequisite(),A1List.get(i).getDateTime());
-
-				System.out.println(output);
-			}
-
-		}else if(option == 2) {
-			int z = Helper.readInt("Enter tuition ID > ");
-			String x = Helper.readString("Enter Tuition Title > ");
-			String c = Helper.readString("Enter Groupname > ");
-			String v = Helper.readString("Enter Description > ");
-			String b = Helper.readString("Enter Duration > ");
-			String n = Helper.readString("Enter Teacher name > ");
-			String m = Helper.readString("Enter Requisite > ");
-			String p = Helper.readString("Enter Year Started > ");
-			A1List.add(new AddTuition(z,x,c,v,b,n,m,p));
-			System.out.println("Tuition Added");
-			System.out.println();
+		
+		while(option != 4) {
+			AddTuitionmenu();
+			option = Helper.readInt("Enter an option > ");
 			
-			
-		}else if(option == 3) {
-			int v = Helper.readInt("Enter tuition ID to remove tuition > ");
-			for(int x = 0; x <A1List.size(); x++) {
-				if(A1List.get(x).getTuitioncode() == v) {
-					A1List.remove(x);
-					System.out.println("Student removed");
-					System.out.println();
-					
+			if(option == 1) {
+				C206_CaseStudy.viewAllAddTuition(addTuitionList);
 				
+			}else if(option == 2) {
+		
+				int z = Helper.readInt("Enter tuition code to check if it exists > ");
+				for(int i = 0; i<addTuitionList.size(); i++) {
 					
+					if(addTuitionList.get(i).getTuitioncode() == z) {
+						System.out.println();
+						System.out.println("Tuition ID already exists");
+						
+					}else {
+						System.out.println("ID do not exists, eligible for creation");
+						AddTuition cc = inputAddTuition();
+						C206_CaseStudy.addAddTuition(addTuitionList, cc);
+						System.out.println("Tuition Added");
+						break;
+					}
 				}
+			}else if(option == 3) {
+				C206_CaseStudy.DeleteAddTuition(addTuitionList);
+			
+				
+			}else if(option == 4) {
+				System.out.println("Thank you for using tuition centre. Goodbye!");
+			}else {
+				System.out.println("Invalid choice");
 			}
 		}
+		
+		
+		
 	}
-	}
-
-	public static void AddTuition() {
+	public static void AddTuitionmenu() {
+		Helper.line(40, "=");
 		System.out.println("Welcome to Tuition Centre");
 		Helper.line(40, "=");
 		System.out.println("1. View all tuition");
@@ -64,13 +62,88 @@ public class C206_CaseStudy {
 		System.out.println("3. Delete tuition");
 		System.out.println("4. Quit");
 		
+	}	
+	
+	public static String retrieveAllAddTuition(ArrayList<AddTuition> addTuitionList) {
+		String output = "";
+		
+		for(int i = 0; i<addTuitionList.size(); i++) {
+			
+		//output += String.format("%-84s\n", addTuitionList.get(i).toString());
+			output += String.format("%-15d %-10s %-15s %-15s %-15s %-15s %-15s %-15s \n", addTuitionList.get(i).getTuitioncode(),addTuitionList.get(i).getTuitiontitle(),addTuitionList.get(i).getGroupname(),addTuitionList.get(i).getTutitionDescription(),addTuitionList.get(i).getDuration(),addTuitionList.get(i).getTeacher(),addTuitionList.get(i).getrequisite(),addTuitionList.get(i).getDateTime());
+		}
+		return output;
+	}
+	
+	public static void viewAllAddTuition(ArrayList<AddTuition> addTuitionList) {
+		String output = String.format("%-15s %-10s %-15s %-15s %-15s %-15s %-15s %-15s \n",
+				"Tuition ","Title" ,"Groupname" ,"Description" ,"Duration" ,"Teacher" ,"Requisite" ,"Year Started");
+		output += retrieveAllAddTuition(addTuitionList);
+		System.out.println(output);
 	}
 
-	public static void menu() {
-		System.out.println("1. Register/Add student");
-		System.out.println("2. Register for tuition");
-		System.out.println("3. Add tuition timetable ");
-		System.out.println("4. Add tuition");
-		System.out.println("5. Quit");
+	public static AddTuition inputAddTuition() {
+		int l = Helper.readInt("Enter Tuition Code > ");
+		String x = Helper.readString("Enter Tuition Title > ");
+		String c = Helper.readString("Enter Groupname > ");
+		String v = Helper.readString("Enter Description > ");
+		String b = Helper.readString("Enter Duration > ");
+		String n = Helper.readString("Enter Teacher name > ");
+		String m = Helper.readString("Enter Requisite > ");
+		String p = Helper.readString("Enter Year Started > ");
+		
+		AddTuition cc = new AddTuition(l,x,c,v,b,n,m,p);
+		return cc;
 	}
+		// TODO Auto-generated method stub	
+
+	public static void addAddTuition(ArrayList<AddTuition> addTuitionList, AddTuition cc) {
+		addTuitionList.add(cc);
+	}
+	
+	
+	public static void deleteAddTuition(ArrayList<AddTuition> addTuitionList) {
+		int l = Helper.readInt("Enter Tuition Code");
+		for (int i = 0; i< addTuitionList.size(); i++ ) {
+			if(addTuitionList.get(i).getTuitioncode() == l) {
+				addTuitionList.remove(i);
+				System.out.println("Tuition code deleted");
+				
+			}else {
+				System.out.println("No such Tuition code to be delete");
+				break;
+				
+			}
+		}
+		
+	}
+	public static boolean doDeleteAddTuition(ArrayList<AddTuition>addTuitionList, int x) {
+		
+		boolean deleted = false;
+		
+		for(int i = 0; i< addTuitionList.size(); i++) {
+			
+			int p = addTuitionList.get(i).getTuitioncode();
+			
+			if(x == p && addTuitionList.get(i).getTuitioncode() == p) {
+				
+				addTuitionList.remove(i);
+				
+				deleted = true;
+			}
+		}
+		return deleted;
+	}
+	public static void DeleteAddTuition(ArrayList<AddTuition> addTuitionList) {
+		C206_CaseStudy.viewAllAddTuition(addTuitionList);
+		int x = Helper.readInt("Enter Tuition Code > ");
+		Boolean deleted = doDeleteAddTuition(addTuitionList, x);
+		if(deleted == false) {
+			System.out.println("Invalid tuition code");
+		}else {
+			System.out.println("Tuition " + x + " Deleted");
+		}
 }
+}
+	
+		
