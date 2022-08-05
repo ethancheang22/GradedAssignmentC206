@@ -8,7 +8,7 @@ import org.junit.Test;
 public class C206_CaseStudyTest {
 	private AddTuition addTui;
 	
-//Alvin test unit
+//Alvin test unitt
 	private ArrayList<AddTuition> tuitionList;
 	
 

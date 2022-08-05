@@ -1,7 +1,7 @@
 
 public class AddTuition {
 	
-	//Alvin's Class Folder
+	//Alvin's Class Folderr
 	private int Tuitioncode;
 	  private String Tuitiontitle;
 	  private String Groupname;
