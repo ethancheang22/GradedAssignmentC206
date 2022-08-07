@@ -12,11 +12,18 @@ public class C206_CaseStudyTest {
 	//alvin
 	private AddTuition addTui;
 	
+	//ethan
+	
+	//ian
+	
 	//maegan
 	private ArrayList<Addregistration>registrationList;
 	//alvin
 	private ArrayList<AddTuition> tuitionList;
 	
+	//ethan 
+	
+	//ian
 
 	public C206_CaseStudyTest() {
 		super();
