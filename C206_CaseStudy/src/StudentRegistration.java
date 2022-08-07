@@ -2,14 +2,14 @@ public class StudentRegistration {
   
   private String name;
   private String gender;
-  private String mobile;
+  private int mobile;
   private String email;
   private String dateofbirth;
   private String countryofresidence;
   private String interest;
   
   public StudentRegistration(String name, 
-      String gender, String mobile, 
+      String gender, int mobile, 
       String email, String dateofbirth,
       String countryofresidence, String interest) {
     
@@ -22,7 +22,8 @@ public class StudentRegistration {
     this.interest = interest;
   }
   
-  public String getname() {
+
+public String getname() {
     return name;
   }
   
@@ -30,7 +31,7 @@ public class StudentRegistration {
     return gender;
   }
   
-  public String getmobile() {
+  public int getmobile() {
     return mobile;
   }
   
@@ -52,6 +53,19 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
+
+public String getStudentRegistration() {
+	String output = String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s\n", name, gender, 
+		       mobile, email, dateofbirth, countryofresidence, interest);
+		 // TODO Auto-generated method stub
+		 return output;
+}
+public String toString() {
+	  String output = super.toString();
+	  output = String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s\n", name, gender, 
+	         mobile, email, dateofbirth, countryofresidence, interest);
+	  return output;
+	  }
 
 }
 
