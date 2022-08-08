@@ -11,19 +11,16 @@ public class C206_CaseStudyTest {
 	private Addregistration addReg;
 	//alvin
 	private AddTuition addTui;
-	
-	//ethan
-	
-	//ian
+	//Ian
+	private StudentRegistration addStu;
 	
 	//maegan
 	private ArrayList<Addregistration>registrationList;
 	//alvin
 	private ArrayList<AddTuition> tuitionList;
+	//Ian
+	private ArrayList<StudentRegistration> studentList;
 	
-	//ethan 
-	
-	//ian
 
 	public C206_CaseStudyTest() {
 		super();
@@ -37,14 +34,66 @@ public class C206_CaseStudyTest {
 		addReg = new Addregistration(001, "A1234", "layA1234@gmail.com", "Pending", "31/07/22 09:15AM", 1001);
 		//alvin
 		addTui = new AddTuition(1, "a", "a", "a", "a", "a", "a", "a");
+		//Ian
+		addStu = new StudentRegistration("Ian", "Male", 98765432, "Ian213@gmail.com", "02/11/2001", "Singapore", "English");
 		
 		//maegan
 		registrationList = new ArrayList<Addregistration>();
 		//alvin
 		tuitionList = new ArrayList<AddTuition>();
+		//Ian
+		studentList = new ArrayList<StudentRegistration>();
 		
 	
 	}
+	//Ian
+	public void testStudentRegistration() {
+		assertNotNull("Check if there is valid Registration arraylist to add to", tuitionList);
+
+		// Given an empty list, after adding 1 item, the size of the list is 1 - normal
+		// The item just added is as same as the first item of the list
+		mainStudentRegistration.addStudentRegistration(studentList, addStu);
+		assertEquals("Check that arraylist size is 1", 1, studentList.size());
+		assertSame("Check that StudentRegistration is added", addStu, studentList.get(0));
+
+//		// Add another item. test The size of the list is 2? -normal
+//		// The item just added is as same as the second item of the list
+		mainStudentRegistration.addStudentRegistration(studentList, addStu);
+		assertEquals("Check that arraylist size is 2", 2, studentList.size());
+		assertSame("Check that StudentRegistration is added", addStu, studentList.get(1));
+	}
+		public void testretrieveAllAddStudentRegistration() {
+			// Test if Item list is not null but empty - boundary
+			assertNotNull("Test if there is valid StudentRegistration arraylist to retrieve registration from", studentList);
+		
+			//test if the list of AddTuition retrieved from the SourceCentre is empty - boundary
+			String allStudentRegistration= mainStudentRegistration.retrieveAllStudentRegistration(studentList);
+			String testOutput = "";
+			assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allStudentRegistration);
+		
+			//Given an empty list, after adding 2 item, test if the size of the list is 1 - normal
+			mainStudentRegistration.addStudentRegistration(studentList, addStu);
+			assertEquals("Test that the StudentRegistration arraylist size is 1", 1 , registrationList.size());
+		
+			//test if the expected output string same as the list of tuitionList retrieved from the SourceCentre
+			allStudentRegistration = mainStudentRegistration.retrieveAllStudentRegistration(studentList);
+			testOutput = String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s\n", "Ian", "Male", 98765432, "Ian213@gmail.com", "02/11/2001", "Singapore", "English");
+			assertEquals("Test that ViewAllAddStudentRegistration",testOutput,allStudentRegistration);
+
+	}
+		@Test
+		public void testdoDeleteStudentRegistration() {
+		 //Item list is not null, so that can delete a item - boundary
+		assertNotNull("Test if there is valid tuitionList arraylist to be deleted to",studentList);
+		
+		
+		// Given a list with one item, after deleting, the size of the list is 0 - normal
+		mainStudentRegistration.doDeleteStudentRegistration(studentList, null);
+		assertEquals("Check that arraylist size is 0", 0, studentList.size());
+		
+		
+	}
+	
 	//Maegan
 	@Test
 	public void testAddregistration() {
@@ -70,7 +119,7 @@ public class C206_CaseStudyTest {
 		// Test if Item list is not null but empty - boundary
 		assertNotNull("Test if there is valid Addregistration arraylist to retrieve registration from", registrationList);
 	
-		//test if the list of Addregistration retrieved from the SourceCentre is empty - boundary
+		//test if the list of AddTuition retrieved from the SourceCentre is empty - boundary
 		String allRegistration= RegistrationMain.retrieveAllAddRegistration(registrationList);
 		String testOutput = "";
 		assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allRegistration);
@@ -81,8 +130,7 @@ public class C206_CaseStudyTest {
 	
 		//test if the expected output string same as the list of tuitionList retrieved from the SourceCentre
 		allRegistration = RegistrationMain.retrieveAllAddRegistration(registrationList);
-		testOutput = String.format("%-15s %-10s %-15s %-15s %-15s %-15d \n",001, "A1234", 
-				"layA1234@gmail.com", "Pending", "31/07/22 09:15AM", 1001);
+		testOutput = String.format("%-15s %-10s %-15s %-15s %-15s %-15d \n",001, "A1234", "layA1234@gmail.com", "Pending", "31/07/22 09:15AM", 1001);
 		assertEquals("Test that ViewAllAddRegistration",testOutput,allRegistration);
 		
 	}
@@ -155,9 +203,12 @@ public class C206_CaseStudyTest {
 	public void tearDown() throws Exception {
 		addTui = null;
 		addReg = null;
+		addStu = null;
 		
 		tuitionList = null;
 		registrationList = null;
+		studentList = null;
+		
 				
 	}
 

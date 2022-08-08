@@ -8,65 +8,62 @@ public class StudentRegistration {
   private String countryofresidence;
   private String interest;
   
-  public StudentRegistration(String name, 
-      String gender, int mobile, 
-      String email, String dateofbirth,
+  public StudentRegistration(String name, String gender, int mobile, String email, String dateofbirth,
       String countryofresidence, String interest) {
-    
+    super();
     this.name = name;
     this.gender = gender;
     this.mobile = mobile;
-    this.setEmail(email);
+    this.email = email;
     this.dateofbirth = dateofbirth;
     this.countryofresidence = countryofresidence;
     this.interest = interest;
   }
-  
-
-public String getname() {
-    return name;
+  public String getname() {
+   return name;
   }
+  public void setname(String name) {
+  this.name = name;
+}
   
   public String getgender() {
     return gender;
   }
+  public void setgender(String gender) {
+  this.gender = gender;
+}
   
   public int getmobile() {
     return mobile;
   }
-  
+  public void setmobile(int mobile) {
+  this.mobile = mobile;
+}
+  public String getemail() {
+   return email;
+}
+  public void setemail(String email) {
+  this.email = email;
+  }
   public String getdateofbirth() {
     return dateofbirth;
   }
+  public void setdateofbirth(String dateofbirth) {
+  this.dateofbirth = dateofbirth;
+}
   
   public String getcountryofresidence() {
     return countryofresidence;
   }
+  public void setcountryofresidence(String countryofresidence) {
+  this.countryofresidence = countryofresidence;
+}
   public String getinterest() {
-	  return interest;
+   return interest;
   }
-
-public String getEmail() {
-	return email;
+  public void setinterest(String interest) {
+  this.interest = interest;
 }
 
-public void setEmail(String email) {
-	this.email = email;
 }
-
-public String getStudentRegistration() {
-	String output = String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s\n", name, gender, 
-		       mobile, email, dateofbirth, countryofresidence, interest);
-		 // TODO Auto-generated method stub
-		 return output;
-}
-public String toString() {
-	  String output = super.toString();
-	  output = String.format("%-20s %-20s %-20s %-20s %-20s %-20s %-20s\n", name, gender, 
-	         mobile, email, dateofbirth, countryofresidence, interest);
-	  return output;
-	  }
-
-}
-
 
