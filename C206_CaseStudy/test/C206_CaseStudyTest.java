@@ -70,7 +70,7 @@ public class C206_CaseStudyTest {
 		// Test if Item list is not null but empty - boundary
 		assertNotNull("Test if there is valid Addregistration arraylist to retrieve registration from", registrationList);
 	
-		//test if the list of AddTuition retrieved from the SourceCentre is empty - boundary
+		//test if the list of Addregistration retrieved from the SourceCentre is empty - boundary
 		String allRegistration= RegistrationMain.retrieveAllAddRegistration(registrationList);
 		String testOutput = "";
 		assertEquals("Test that the retrieved Chromebooklist is empty?", testOutput, allRegistration);
@@ -81,7 +81,8 @@ public class C206_CaseStudyTest {
 	
 		//test if the expected output string same as the list of tuitionList retrieved from the SourceCentre
 		allRegistration = RegistrationMain.retrieveAllAddRegistration(registrationList);
-		testOutput = String.format("%-15s %-10s %-15s %-15s %-15s %-15d \n",001, "A1234", "layA1234@gmail.com", "Pending", "31/07/22 09:15AM", 1001);
+		testOutput = String.format("%-15s %-10s %-15s %-15s %-15s %-15d \n",001, "A1234", 
+				"layA1234@gmail.com", "Pending", "31/07/22 09:15AM", 1001);
 		assertEquals("Test that ViewAllAddRegistration",testOutput,allRegistration);
 		
 	}

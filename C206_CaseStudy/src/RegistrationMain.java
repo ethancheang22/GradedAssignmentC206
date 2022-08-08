@@ -62,7 +62,11 @@ public class RegistrationMain {
 		
 		for(int i = 0; i<addRegistrationList.size(); i++) {
 			
-			output += String.format("%-15s %-10s %-15s %-15s %-15s %-15d \n", addRegistrationList.get(i).getRegistrationNum(),addRegistrationList.get(i).getTuitionId(),addRegistrationList.get(i).getEmail(),addRegistrationList.get(i).getStatus(),addRegistrationList.get(i).getDateTime(),addRegistrationList.get(i).getRegistrationId());
+			output += String.format("%-15s %-10s %-15s %-15s %-15s %-15d \n", 
+					addRegistrationList.get(i).getRegistrationNum(),
+					addRegistrationList.get(i).getTuitionId(),
+					addRegistrationList.get(i).getEmail(),addRegistrationList.get(i).getStatus(),
+					addRegistrationList.get(i).getDateTime(),addRegistrationList.get(i).getRegistrationId());
 		}
 		return output;
 	}
@@ -126,7 +130,7 @@ public class RegistrationMain {
 		}
 		return deleted;
 	}
-	public static void DeleteAddTuition(ArrayList<Addregistration> addRegistrationList) {
+	public static void DeleteAddRegistration(ArrayList<Addregistration> addRegistrationList) {
 		RegistrationMain.viewAllAddRegistration(addRegistrationList);
 		int x = Helper.readInt("Enter Tuition Code > ");
 		Boolean deleted = doDeleteAddRegistation(addRegistrationList, x);
