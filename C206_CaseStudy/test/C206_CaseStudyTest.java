@@ -29,7 +29,6 @@ public class C206_CaseStudyTest {
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
-		
 		//maegan
 		addReg = new Addregistration(001, "A1234", "layA1234@gmail.com", "Pending", "31/07/22 09:15AM", 1001);
 		//alvin

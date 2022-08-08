@@ -1,4 +1,4 @@
-//Maegan 
+//done Maegan 
 public class Addregistration {
 
 	private int registrationNum;
